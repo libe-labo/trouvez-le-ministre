@@ -7,6 +7,7 @@ body {
 
 section#main-content {
     float: left;
+    position: relative;
 }
 
 .pagewrapper {
@@ -229,6 +230,60 @@ em {
     font-size: .7em;
 }
 
+section#footer {
+/*    background: #fff;
+*/    display: block;
+    float: left;
+    clear: both;
+    margin-bottom: 35px;
+    padding: 0 25px 15px 35px;
+    width: 100%;
+    border-top: 1px solid #fff;
+}
+
+section#footer p {
+    font-family: "Open Sans";
+    font-weight: bold;
+/*    color: #c42121 !important;
+*/    padding: 15px 0;
+    color: #fff !important;
+}
+
+section#footer ul {
+    list-style-type: none;
+    float: left;
+}
+
+section#footer ul li {
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+section#footer ul li > * {
+    float: left;
+}
+
+section#footer ul li img {
+    width: 100px;
+    height: auto;
+/*    border: 4px solid #c42121;
+*/
+    border: 4px solid #fff;
+}
+
+section#footer ul li img.noborder {
+    border: none;
+}
+
+section#footer ul li p {
+    width: 180px;
+    padding: 0 20px 0 10px;
+    font-weight: normal;
+    font-size: .8em !important;
+    line-height: 1.1em !important;
+}
+
 @media (max-width: 960px) {
     .response {
         top: 0;
@@ -277,10 +332,6 @@ em {
 
     .gutter {
         width: 2.6%;
-    }
-
-    section#main-content {
-        position: relative;
     }
 
     .navigation {
