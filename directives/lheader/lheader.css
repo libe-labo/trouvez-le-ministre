@@ -1,0 +1,71 @@
+#main-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 300;
+
+    width: 100%;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 23px;
+    list-style-type: none;
+
+    box-shadow: 1px 0 15px rgba(0, 0, 0, .1);
+}
+
+.wrapper{
+    display: block;
+
+    width: 70%;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.navbar-brand a img{
+    display: block;
+
+    width: 90.8125px;
+    max-width: 100%;
+    height: 33px;
+    max-height: 33px;
+
+    vertical-align: top;
+}
+
+.navbar-brand{
+    display: block;
+    position: absolute;
+
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 8px 0;
+
+    float: none;
+}
+
+@media screen and (max-width: 995px) {
+    .wrapper {
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .navbar-brand{
+        padding-left: 8px;
+    }
+}

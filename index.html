@@ -1,0 +1,151 @@
+<html lang="fr" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Libération.fr – Qui est-ce gouvernemental</title>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <meta name="keywords" content="actualités, news">
+        <meta name="description" content="Tout savoir sur les dernières actualités politiques, monde, société, sports, écologie avec le journal en ligne Libération.">
+        <link rel="canonical" href="http://www.liberation.fr/apps/2015/06/qui-est-ce/index.html">
+        <link rel="shortcut icon" href="http://s1.libe.com/favicon.png">
+
+        <meta property="og:title" content="Qui est-ce gouvernemental" />
+        <meta property="og:site_name" content="Libération.fr"/>
+        <meta property="og:image" content="http://www.liberation.fr/apps/2015/06/qui-est-ce/data/pictures/social.jpg" />
+        <meta property="og:url" content="http://www.liberation.fr/apps/2015/06/qui-est-ce/index.html" />
+        <meta property="og:description" content="" />
+
+        <script type="text/javascript" async="" src="http://www.google-analytics.com/analytics.js"></script>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/css/ngDialog.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/css/ngDialog-theme-plain.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+
+        <link rel="stylesheet" type="text/css" href="./css/header.css" media="all">
+        <link rel="stylesheet" type="text/css" href="./css/style.css" media="all">
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-touch.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/js/ngDialog.min.js"></script>
+        <script type="text/javascript" src="js/imagesLoaded.angular.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+
+        <script type="text/javascript" src="directives/lheader/lheader.directive.js" charset="utf-8"></script>
+
+        <script type="text/javascript" src="js/app.js" charset="utf-8"></script>
+    </head>
+    <body ng-controller="Ctrl">
+        <lheader></lheader>
+
+        <section id="main-content">
+            <div class="pagewrapper">
+                <div class="menu">
+                    <img src="data/pictures/qui-est-ce.png" />
+                    <p>
+                        L'ordinateur a choisi un membre du gouvernement au hasard. À vous de le trouver en posant le moins de questions possible.
+                        <br /><br /><br />
+                        Le membre du gouvernement que vous recherchez...</p>
+                    <ul ng-swipe-left="nextFilter()" ng-swipe-right="prevFilter()" class="nomobile">
+                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value">
+                            <button type="button" ng-click="applyFilter(filter.value)"
+                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
+                        </li>
+                    </ul>
+                    <ul ng-swipe-left="nextFilter()" ng-swipe-right="prevFilter()" class="mobile">
+                        <li ng-repeat="filter in filters" ng-class="filter.value">
+                            <button type="button" ng-click="applyFilter(filter.value)"
+                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
+                        </li>
+                    </ul>
+                    <div class="navigation left" ng-click="prevFilter()">
+                        <i class="fa fa-caret-left fa-2x"></i>
+                    </div>
+                    <div class="navigation right" ng-click="nextFilter()">
+                        <i class="fa fa-caret-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class='isotope' data-images-loaded data-use-progress-events="yes">
+
+                    <div class="bigyes response"><img src="data/pictures/oui.png" /></div>
+                    <div class="bigno response"><img src="data/pictures/non.png" /></div>
+
+                    <div class="gutter"></div>
+                    <div class="pages" ng-repeat="d in data | orderBy: 'order'"
+                         ng-class="cardClass(d)" ng-click="clickOnCard(d)"
+                         popover-title="{{ d.prenom }} {{ d.nom }}" popover-trigger="mouseenter"
+                         popover="{{ d.poste }}"
+                         popover-placement="left">
+                         <img ng-src="data/pictures/{{ getPicture(d) }}.jpg" />
+                        <h3>{{ d.prenom }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="credits">Photos : AFP, CC Philippe Grangeaud</div>
+        </section>
+
+        <!-- Chartbeat -->
+        <script type='text/javascript'>
+          var _sf_async_config={};
+          _sf_async_config.uid = 43601;
+          _sf_async_config.domain = 'liberation.fr';
+          _sf_async_config.useCanonical = true;
+          _sf_async_config.sections = "Static";
+          _sf_async_config.authors = "Static";
+          (function(){
+            function loadChartbeat() {
+              window._sf_endpt=(new Date()).getTime();
+                  var e = document.createElement('script');
+                  e.setAttribute('language', 'javascript');
+                  e.setAttribute('type', 'text/javascript');
+                  e.setAttribute('src', 'http://static.chartbeat.com/' + 'js/chartbeat.js');
+                  document.body.appendChild(e);
+              }
+              var oldonload = window.onload;
+              window.onload = (typeof window.onload != 'function') ?
+                loadChartbeat : function() { oldonload(); loadChartbeat();
+            };
+          })();
+        </script>
+        <!-- // Chartbeat -->
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-41822557-1', 'liberation.fr');
+            ga('send', 'pageview');
+        </script>
+        <!-- // Google Analytics -->
+
+        <!-- Xiti -->
+        <script type="text/javascript">
+            xtnv = document;        //parent.document or top.document or document
+            xtsd = "http://logliberation";
+            xtsite = "381060";
+            xtn2 = "48";        // level 2
+            xtpage = "2015::06::quiestce";        //page name (with the use of :: to create chapters)
+            xtdi = "";
+            xt_pagetype = "";
+            xt_multc = "&x1=0&x2=43&x3=&x4=&x5=&x6=7&x7=";
+            xt_an = "";
+            xt_ac = "";
+
+            if (window.xtparam==null) { window.xtparam = ''; }
+            window.xtparam += "&ptype="+xt_pagetype+"&ac="+xt_ac+"&an="+xt_an+xt_multc;
+        </script>
+        <noscript>
+            <img width="1" height="1" src="http://logliberation.xiti.com/hit.xiti?s=381060&amp;s2=56&amp;p=2015::06::quiestce&amp;di=&amp;" >
+        </noscript>
+        <script type="text/javascript" src="http://s1.libe.com/bloom/theme/js/xtcore.js"></script>
+        <!-- // Xiti -->
+
+    </body>
+</html>
