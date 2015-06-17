@@ -231,8 +231,7 @@ em {
 }
 
 section#footer {
-/*    background: #fff;
-*/    display: block;
+    display: block;
     float: left;
     clear: both;
     margin-bottom: 35px;
@@ -244,8 +243,7 @@ section#footer {
 section#footer p {
     font-family: "Open Sans";
     font-weight: bold;
-/*    color: #c42121 !important;
-*/    padding: 15px 0;
+    padding: 15px 0;
     color: #fff !important;
 }
 
@@ -267,8 +265,6 @@ section#footer ul li > * {
 section#footer ul li img {
     width: 100px;
     height: auto;
-/*    border: 4px solid #c42121;
-*/
     border: 4px solid #fff;
 }
 
