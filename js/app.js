@@ -86,7 +86,6 @@ app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
         $scope.data = allData;
 
         $scope.toFind = _.sample(allData);
-        console.debug($scope.toFind);
 
         $scope.filters = _.values(filterNames);
 
