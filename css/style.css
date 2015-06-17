@@ -5,10 +5,15 @@ body {
 	background-color: #c42121;
 }
 
+section#main-content {
+    float: left;
+}
+
 .pagewrapper {
 	width: 100%;
 	padding: 20px;
     overflow-x: h;
+    float: left;
 }
 
 .pagewrapper > div {
@@ -220,7 +225,7 @@ em {
     bottom: 5px;
     right: 5px;
     color: #fff;
-    font-size: "Open Sans";
+    font-family: "Open Sans";
     font-size: .7em;
 }
 
@@ -272,6 +277,10 @@ em {
 
     .gutter {
         width: 2.6%;
+    }
+
+    section#main-content {
+        position: relative;
     }
 
     .navigation {
