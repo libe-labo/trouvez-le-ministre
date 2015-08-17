@@ -43,7 +43,7 @@
         <lheader></lheader>
 
         <section id="main-content">
-            <div class="ribbon">
+            <div class="ribbon nomobile">
                 <img src="data/pictures/ribbon.svg">
                 <p class="ribbon__content">L'ordinateur a choisi un membre du gouvernement, devinez de qui il s'agit en utilisant le moins de critères possible.</p>
                 <img src="data/pictures/ribbon2.svg">
@@ -63,39 +63,29 @@
                          <img ng-src="data/pictures/photos/{{ getPicture(d) }}.png" />
                         <h3>{{ d.prenom }}</h3>
                     </div>
+                    <div class="credits">Photos : AFP, CC Philippe Grangeaud</div>
                 </div>
-                <div class="menu">
+                <div class="menu nomobile">
                     <div class="menu__title">
                         Critères
                     </div>
-                    <ul ng-swipe-left="nextFilter()" ng-swipe-right="prevFilter()" class="nomobile">
+                    <ul>
                         <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value">
                             <button type="button" ng-click="applyFilter(filter.value)"
                                     ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
                         </li>
                     </ul>
-                    <ul ng-swipe-left="nextFilter()" ng-swipe-right="prevFilter()" class="mobile">
-                        <li ng-repeat="filter in filters" ng-class="filter.value">
-                            <button type="button" ng-click="applyFilter(filter.value)"
-                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
-                        </li>
-                    </ul>
-                    <div class="navigation left" ng-click="prevFilter()">
-                        <i class="fa fa-caret-left fa-2x"></i>
-                    </div>
-                    <div class="navigation right" ng-click="nextFilter()">
-                        <i class="fa fa-caret-right fa-2x"></i>
-                    </div>
                 </div>
             </div>
-            <div class="credits">Photos : AFP, CC Philippe Grangeaud</div>
         </section>
 
         <script type="text/javascript">
             $(function() {
                 setTimeout(function() {
                     $('#main-content').css('margin-top', $('.cover').outerHeight());
-                    $('.pagewrapper').css('margin-top', $('.ribbon').outerHeight() / 2);
+                    if ($('.ribbon').css('display') !== 'none') {
+                        $('.pagewrapper').css('margin-top', $('.ribbon').outerHeight() / 2);
+                    }
                 }, 100);
             });
         </script>

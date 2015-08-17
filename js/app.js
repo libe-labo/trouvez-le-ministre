@@ -29,7 +29,7 @@ function relayout() {
 
         $container.css({
             position : 'relative',
-            height : ($elements.length / nOnLine) * elementHeight
+            height : nLines * elementHeight
         });
         $container.find('.pages').each(function(i) {
             var basePos = pos[i].y % 2 ? 0
