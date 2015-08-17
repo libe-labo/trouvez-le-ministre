@@ -8,18 +8,19 @@ function relayout() {
             elementWidth = parseInt($elements.outerWidth()),
             elementHeight = parseInt($elements.outerHeight()),
             gutterWidth = 0,
-            nOnLine = 6,
+            nOnLine = 0,
             nLines = 1,
             pos = [];
 
-        // for (var width = 0; width < containerWidth; width += elementWidth + gutterWidth) {
-        //     ++nOnLine;
-        // }
+        for (var width = 0; width < containerWidth; width += elementWidth) {
+            ++nOnLine;
+        }
+        nOnLine -= 2;
         gutterWidth = (containerWidth - (elementWidth * nOnLine)) / (nOnLine - 1);
         pos.push({ x : 0 , y : 0 });
         for (var i = 1; i < $elements.length;) {
             ++nLines;
-            var lineLength = nLines % 2 ? nOnLine : nOnLine - 1;
+            var lineLength = nLines % 2 ? nOnLine - 1 : nOnLine;
             for (var j = 0; j < lineLength; ++j) {
                 pos.push({ x : j , y : nLines - 1 });
                 ++i;
@@ -31,9 +32,9 @@ function relayout() {
             height : ($elements.length / nOnLine) * elementHeight
         });
         $container.find('.pages').each(function(i) {
-            var basePos = pos[i].y % 2 ? (elementWidth / 2) + (gutterWidth / 2)
+            var basePos = pos[i].y % 2 ? 0
                                        : (pos[i].y === 0 ? (containerWidth / 2) - (elementWidth / 2)
-                                                         : 0);
+                                                         : (elementWidth / 2) + (gutterWidth / 2));
             $(this).css({
                 position : 'absolute',
                 top : pos[i].y * $(this).outerHeight(),

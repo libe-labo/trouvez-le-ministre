@@ -7,7 +7,7 @@ body {
 
 header div.cover {
 	background-color: #e3234a;
-	padding: 3em;
+	padding: 3em 0 5em 0;
 }
 
 header div.cover h1 {
