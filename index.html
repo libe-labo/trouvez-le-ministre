@@ -28,7 +28,6 @@
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-touch.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/js/ngDialog.min.js"></script>
@@ -45,7 +44,7 @@
 
         <section id="main-content">
             <div class="pagewrapper">
-                <div class='isotope' data-images-loaded data-use-progress-events="yes">
+                <div class="left" data-images-loaded data-use-progress-events="yes">
 
                     <div class="bigyes response"><img src="data/pictures/oui.png" /></div>
                     <div class="bigno response"><img src="data/pictures/non.png" /></div>
@@ -54,9 +53,9 @@
                     <div class="pages" ng-repeat="d in data | orderBy: 'order'"
                          ng-class="cardClass(d)" ng-click="clickOnCard(d)"
                          popover-title="{{ d.prenom }} {{ d.nom }}" popover-trigger="mouseenter"
-                         popover="{{ d.poste }}"
-                         popover-placement="left">
-                         <img ng-src="data/pictures/{{ getPicture(d) }}.jpg" />
+                         popover="{{ d.poste }}" popover-append-to-body="true"
+                         popover-placement="bottom">
+                         <img ng-src="data/pictures/photos/{{ getPicture(d) }}.png" />
                         <h3>{{ d.prenom }}</h3>
                     </div>
                 </div>
@@ -107,7 +106,6 @@
         <script type="text/javascript">
             $(function() {
                 setTimeout(function() {
-                    console.debug($('header').outerHeight());
                     $('#main-content').css('margin-top', $('.cover').outerHeight());
                 }, 100);
             });

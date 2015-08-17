@@ -1,5 +1,49 @@
 'use strict';
 
+function relayout() {
+    window.setTimeout(function() {
+        var $container = $('.left'),
+            $elements = $container.find('.pages'),
+            containerWidth = $container.innerWidth(),
+            elementWidth = parseInt($elements.outerWidth()),
+            elementHeight = parseInt($elements.outerHeight()),
+            gutterWidth = 0,
+            nOnLine = 6,
+            nLines = 1,
+            pos = [];
+
+        // for (var width = 0; width < containerWidth; width += elementWidth + gutterWidth) {
+        //     ++nOnLine;
+        // }
+        gutterWidth = (containerWidth - (elementWidth * nOnLine)) / (nOnLine - 1);
+        pos.push({ x : 0 , y : 0 });
+        for (var i = 1; i < $elements.length;) {
+            ++nLines;
+            var lineLength = nLines % 2 ? nOnLine : nOnLine - 1;
+            for (var j = 0; j < lineLength; ++j) {
+                pos.push({ x : j , y : nLines - 1 });
+                ++i;
+            }
+        }
+
+        $container.css({
+            position : 'relative',
+            height : ($elements.length / nOnLine) * elementHeight
+        });
+        $container.find('.pages').each(function(i) {
+            var basePos = pos[i].y % 2 ? (elementWidth / 2) + (gutterWidth / 2)
+                                       : (pos[i].y === 0 ? (containerWidth / 2) - (elementWidth / 2)
+                                                         : 0);
+            $(this).css({
+                position : 'absolute',
+                top : pos[i].y * $(this).outerHeight(),
+                left : basePos + (pos[i].x * (elementWidth + gutterWidth))
+            });
+        });
+
+    }, 100);
+}
+
 var app = angular.module('app', ['lheader', 'ui.bootstrap', 'imagesLoaded', 'ngTouch', 'ngDialog']);
 
 app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
@@ -84,30 +128,8 @@ function($scope, $http, $timeout, $location, ngDialog) {
 
     var allData = [];
 
-    /*
-    ** Isotope
-    */
-    var callIsotope = function() {
-        $timeout(function() {
-            $('.isotope').isotope({
-                itemSelector : '.pages',
-                masonry : {
-                    columnWidth : '.pages',
-                    gutter : '.gutter'
-                },
-                filter: function() {
-                    return !($(this).hasClass('fadedout'));
-                }
-            });
-        }, 100);
-
-        if ($scope.category === 'savoir-plus') {
-            $timeout(callIsotope, 1000);
-        }
-    };
-
     $scope.$on('PROGRESS', function() {
-        callIsotope();
+        relayout();
     });
 
     /*
@@ -137,7 +159,7 @@ function($scope, $http, $timeout, $location, ngDialog) {
 
         $scope.filters = _.values(filterNames);
 
-        callIsotope();
+        relayout();
     });
 
     $http.get('data/texts.tsv').then(function(response) {
@@ -209,10 +231,6 @@ function($scope, $http, $timeout, $location, ngDialog) {
             }
         });
 
-        if ($(window).width() < 960) {
-            callIsotope();
-        }
-
         if (_.countBy($scope.data, 'filtered')[false] === 1) {
             win($scope.toFind);
         }
@@ -274,7 +292,12 @@ function($scope, $http, $timeout, $location, ngDialog) {
     };
 
     $scope.getPicture = function(d) {
-        return (d.twitter != null && d.twitter.length > 0) ? d.twitter
-                                                           : (d.prenom + d.nom).toLowerCase();
+        var name =  (d.twitter != null && d.twitter.length > 0) ? d.twitter
+                                                                : (d.prenom + d.nom).toLowerCase();
+        return (d.filtered ? 'nb/' : '') + name;
     };
 }]);
+
+$(window).resize(function() {
+    relayout();
+});
