@@ -25,6 +25,55 @@ section#main-content {
     position: relative;
 }
 
+section#main-content .ribbon {
+	position: relative;
+	/*top: -50px;*/
+	z-index: 500;
+
+	max-width: 50%;
+	margin: 0 auto 0 auto;
+
+	-webkit-transform: translate(0, -50%);
+       -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+         -o-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+
+	text-align: center;
+}
+
+section#main-content .ribbon .ribbon__content {
+	display: block;
+	padding: 1em 1em;
+	margin: 0 auto;
+
+	background-color: #fff;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+}
+
+section#main-content .ribbon img {
+	position: absolute;
+	height: 100%;
+	top: 50%;
+	left: 0;
+	z-index: -1;
+	-webkit-transform: translate(-60%, -45%);
+       -moz-transform: translate(-60%, -45%);
+        -ms-transform: translate(-60%, -45%);
+         -o-transform: translate(-60%, -45%);
+            transform: translate(-60%, -45%);
+}
+
+section#main-content .ribbon img:last-of-type {
+	left: auto;
+	right: 0;
+	-webkit-transform: translate(60%, -45%);
+       -moz-transform: translate(60%, -45%);
+        -ms-transform: translate(60%, -45%);
+         -o-transform: translate(60%, -45%);
+            transform: translate(60%, -45%);
+}
+
 .pagewrapper {
 	width: 100%;
 	padding: 20px;
