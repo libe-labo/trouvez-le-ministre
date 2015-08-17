@@ -6,7 +6,7 @@ body {
 }
 
 header div.cover {
-	background-color: #c42121;
+	background-color: #e3234a;
 	padding: 3em;
 }
 
@@ -51,7 +51,7 @@ section#main-content {
 	color: #000;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
-	border-bottom: 2px solid #c42121;
+	border-bottom: 2px solid #e3234a;
 }
 
 .menu p {
@@ -86,7 +86,7 @@ section#main-content {
 	padding: 10px;
 
 	background-color: #fff;
-	color: #c42121;
+	color: #e3234a;
 }
 
 .menu .result .name {
@@ -94,8 +94,8 @@ section#main-content {
 	font-size: 3em;
 	font-weight: 700;
 	color: #fff;
-	-webkit-text-stroke: 2px #c42121;
-	        text-stroke: 2px #c42121;
+	-webkit-text-stroke: 2px #e3234a;
+	        text-stroke: 2px #e3234a;
 }
 
 .pagewrapper .isotop, .pagewrapper .left {
@@ -157,10 +157,10 @@ em {
 }
 
 .btn {
-	border: 1px solid #c42121;
+	border: 1px solid #e3234a;
     border-radius: 0;
 
-	color: #c42121;
+	color: #e3234a;
 	background-color: #fff;
 	font-family: "Open Sans";
 
@@ -175,7 +175,7 @@ em {
 
 .btn:hover {
 	color: #fff;
-	background-color: #c42121;
+	background-color: #e3234a;
 }
 
 .btn.yes, .btn.no {
@@ -184,7 +184,7 @@ em {
 
 .btn.yes {
 	color: #fff;
-	background-color: #c42121;
+	background-color: #e3234a;
 }
 
 .btn.no {
@@ -204,9 +204,9 @@ em {
 }
 
 .ngdialog .btn:hover {
-    color: #c42121;
+    color: #e3234a;
     background-color: #fff;
-    border: 2px solid #c42121;
+    border: 2px solid #e3234a;
 }
 
 .ngdialog h2 {
@@ -304,7 +304,7 @@ em {
     .navigation {
         display: block;
         position: absolute;
-        background-color: #c42121;
+        background-color: #e3234a;
         padding: 25px 5px;
         bottom: 10px;
         cursor: pointer;
