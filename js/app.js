@@ -227,7 +227,7 @@ function($scope, $http, $timeout, $location, ngDialog) {
                         queue : true,
                         duration : 300
                     });
-                }, 500);
+                }, 600);
             }
         });
 

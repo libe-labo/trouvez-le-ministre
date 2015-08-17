@@ -217,7 +217,7 @@ em {
 
 .response {
     pointer-events: none;
-    width: 40%;
+    width: 75%;
     height: auto;
     display: block;
     position: absolute;
