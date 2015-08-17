@@ -106,6 +106,15 @@
             <div class="credits">Photos : AFP, CC Philippe Grangeaud</div>
         </section>
 
+        <script type="text/javascript">
+            $(function() {
+                setTimeout(function() {
+                    console.debug($('header').outerHeight());
+                    $('#main-content').css('margin-top', $('.cover').outerHeight());
+                }, 100);
+            });
+        </script>
+
         <!-- Chartbeat -->
         <script type='text/javascript'>
           var _sf_async_config={};

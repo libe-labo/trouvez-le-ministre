@@ -1,8 +1,23 @@
-@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=3af16084-ba56-49ca-b37d-0b49b59e1927");html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}@font-face{font-family:"AleoRegular";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.svg) format('svg')}@font-face{font-family:"AleoBold";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.svg) format('svg')}@font-face{font-family:"ProximaNovaBold";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/d999c07b-a049-4eb5-b8a6-4f36ae25e67e.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/4d4a75f5-d32a-4a09-8665-133afd39cc37.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/8152bc4e-d700-4c78-b6be-326893e6f53f.svg) format('svg')}body{counter-reset: chapter;min-height:100%;background:#fff}html{min-height:100%}.progress-bar{position:fixed;left:0;top:0;height:3px;display:inline-block;background:#ff7373;width:20%;z-index:2}
-@font-face{font-family:"Proxima Nova Regular";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_B_0.eot?6f3b7a3a38b9') format("eot");src:url('http://s1.libe.com/font/license/27522D_B_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_B_0.woff?973092db2463') format("woff"),url('http://s1.libe.com/font/license/27522D_B_0.ttf?326b4ed42028') format("truetype"),url('http://s1.libe.com/font/license/27522D_B_0.svg#Proxima Nova Regular') format("svg")}@font-face{font-family:"Proxima Nova Regular Bold";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_C_0.eot?7651b0835130') format("eot");src:url('http://s1.libe.com/font/license/27522D_C_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_C_0.woff?1d97b03ffbee') format("woff"),url('http://s1.libe.com/font/license/27522D_C_0.ttf?c4b6119d8273') format("truetype"),url('http://s1.libe.com/font/license/27522D_C_0.svg#Proxima Nova Regular Bold') format("svg")}@font-face{font-family:"Trade Gothic Bold Cond";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?1669fae0818a') format("eot");src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.woff?7f6be2b8eca9') format("woff"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.ttf?5dda5c1e2946') format("truetype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.svg#Trade Gothic Bold Cond') format("svg")}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
 
 body {
+	background-color: #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header div.cover {
 	background-color: #c42121;
+	padding: 3em;
+}
+
+header div.cover h1 {
+	margin: 0;
+
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	text-align: center;
+	font-size: 4em;
+	color: #fff;
 }
 
 section#main-content {

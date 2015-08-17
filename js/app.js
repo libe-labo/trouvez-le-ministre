@@ -3,7 +3,7 @@
 var app = angular.module('app', ['lheader', 'ui.bootstrap', 'imagesLoaded', 'ngTouch', 'ngDialog']);
 
 app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
-                        function($scope, $http, $timeout, $location, ngDialog) {
+function($scope, $http, $timeout, $location, ngDialog) {
 
     var handleYesNo = function(d) {
         if (d == null || d.length <= 0) { return false; }
@@ -14,21 +14,69 @@ app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
         'Chauve' : { label : 'est-il chauve ?', value : 'chauve', order : 1 },
         'Barbu' : { label : 'est-il barbu ?', value : 'barbu', order : 2 },
         'Femme' : { label : 'est-il une femme ?', value : 'femme', order : 3 },
-        'Candidat.e aux primaires PS' : { label : 'a-t-il été candidat à la primaire du PS en 2011 ?', value : 'primaires', order : 4 },
+        'Candidat.e aux primaires PS' : {
+            label : 'a-t-il été candidat à la primaire du PS en 2011 ?',
+            value : 'primaires',
+            order : 4
+        },
         'Enarque' : { label : 'est-il énarque ?', value : 'enarque', order : 6 },
-        'Secrétaire d\'Etat' : { label : 'est-il secrétaire d\'État ?', value : 'secretairedetat', order : 7 },
-        'Déjà là en mai 2012 (Ayrault 1)' : { label : 'était-il déjà au gouvernement en mai 2012 ?', value : 'mai2012', order : 8 },
-        'A soutenu Aubry à la primaire' : { label : 'soutenait-il Martine Aubry à la primaire de 2011 ?', value : 'aubry', order : 9 },
+        'Secrétaire d\'Etat' : {
+            label : 'est-il secrétaire d\'État ?',
+            value : 'secretairedetat',
+            order : 7
+        },
+        'Déjà là en mai 2012 (Ayrault 1)' : {
+            label : 'était-il déjà au gouvernement en mai 2012 ?',
+            value : 'mai2012',
+            order : 8
+        },
+        'A soutenu Aubry à la primaire' : {
+            label : 'soutenait-il Martine Aubry à la primaire de 2011 ?',
+            value : 'aubry',
+            order : 9
+        },
         'Déjà élu.e' : { label : 'a-t-il déjà été élu ?', value : 'elu', order : 10 },
-        'Elu.e d\'Outre-Mer' : { label : 'a-t-il été élu d\'Outre-Mer ?', value : 'outremer', order : 11 },
-        'Né.e avant la Ve République' : { label : 'est-il né avant la Ve République ?', value : 'verepublique', order : 12 },
+        'Elu.e d\'Outre-Mer' : {
+            label : 'a-t-il été élu d\'Outre-Mer ?',
+            value : 'outremer',
+            order : 11
+        },
+        'Né.e avant la Ve République' : {
+            label : 'est-il né avant la Ve République ?',
+            value : 'verepublique',
+            order : 12
+        },
         'Né.e sous Giscard' : { label : 'est-il né sous Giscard ?', value : 'giscard', order : 13 },
-        'Né.e à l\'étranger' : { label : 'est-il né à l\'étranger ?', value : 'neetrange', order : 14 },
-        'Nouvel entrant' : { label : 'est-il un nouvel entrant ?', value : 'nouvelentrant', order : 15 },
-        'Porte des lunettes' : { label : 'porte-t-il des lunettes ?', value : 'lunettes', order : 16 },
-        'Adhérent.e au PS' : { label : 'est-il adhérent au PS ?', value : 'adherentps', order : 17 },
-        'Elu.e du sud' : { label : 'a-t-il été élu du Sud de la France ?', value : 'sud', order : 18 },
-        'Portrait de der de Libé' : { label : 'a-t-il eu droit à un portrait de der dans Libé ?', value : 'portrait', order : 19 }
+        'Né.e à l\'étranger' : {
+            label : 'est-il né à l\'étranger ?',
+            value : 'neetrange',
+            order : 14
+        },
+        'Nouvel entrant' : {
+            label : 'est-il un nouvel entrant ?',
+            value : 'nouvelentrant',
+            order : 15
+        },
+        'Porte des lunettes' : {
+            label : 'porte-t-il des lunettes ?',
+            value : 'lunettes',
+            order : 16
+        },
+        'Adhérent.e au PS' : {
+            label : 'est-il adhérent au PS ?',
+            value : 'adherentps',
+            order : 17
+        },
+        'Elu.e du sud' : {
+            label : 'a-t-il été élu du Sud de la France ?',
+            value : 'sud',
+            order : 18
+        },
+        'Portrait de der de Libé' : {
+            label : 'a-t-il eu droit à un portrait de der dans Libé ?',
+            value : 'portrait',
+            order : 19
+        }
     };
     var usedFilters = {};
 
@@ -44,8 +92,8 @@ app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
             $('.isotope').isotope({
                 itemSelector : '.pages',
                 masonry : {
-                  columnWidth : '.pages',
-                  gutter : '.gutter'
+                    columnWidth : '.pages',
+                    gutter : '.gutter'
                 },
                 filter: function() {
                     return !($(this).hasClass('fadedout'));
@@ -100,14 +148,16 @@ app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
     ** Utils
     */
     $scope.tweet = function(win) {
-        var twitter = $scope.toFind.twitter != null && $scope.toFind.twitter.length > 0 ? '@' + $scope.toFind.twitter : $scope.toFind.prenom + ' ' + $scope.toFind.nom;
+        var twitter = $scope.toFind.twitter != null && $scope.toFind.twitter.length > 0 ? '@' +
+                      $scope.toFind.twitter : $scope.toFind.prenom + ' ' + $scope.toFind.nom;
         var wintext = 'J\'ai identifié ' + twitter + ' en ' + _.size(usedFilters) +
                       ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
                       ' au «Qui est-ce ?» gouvernemental. Et vous ?';
         var losetext = 'J\'ai perdu au «Qui est-ce ?» gouvernemental. Faites-vous mieux ?';
         var text = encodeURIComponent(win ? wintext : losetext),
             url  = encodeURIComponent($location.absUrl()),
-            link = 'https://twitter.com/intent/tweet?original_referer=' + '' + '&text=' + text + ' ' + url;
+            link = 'https://twitter.com/intent/tweet?original_referer=' + '' + '&text=' + text +
+                   ' ' + url;
 
         window.open(link, '', 'width=575,height=400,menubar=no,toolbar=no');
     };
@@ -224,6 +274,7 @@ app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
     };
 
     $scope.getPicture = function(d) {
-        return (d.twitter != null && d.twitter.length > 0) ? d.twitter : (d.prenom + d.nom).toLowerCase();
+        return (d.twitter != null && d.twitter.length > 0) ? d.twitter
+                                                           : (d.prenom + d.nom).toLowerCase();
     };
 }]);
