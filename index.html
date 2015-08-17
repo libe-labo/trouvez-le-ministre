@@ -45,12 +45,25 @@
 
         <section id="main-content">
             <div class="pagewrapper">
+                <div class='isotope' data-images-loaded data-use-progress-events="yes">
+
+                    <div class="bigyes response"><img src="data/pictures/oui.png" /></div>
+                    <div class="bigno response"><img src="data/pictures/non.png" /></div>
+
+                    <div class="gutter"></div>
+                    <div class="pages" ng-repeat="d in data | orderBy: 'order'"
+                         ng-class="cardClass(d)" ng-click="clickOnCard(d)"
+                         popover-title="{{ d.prenom }} {{ d.nom }}" popover-trigger="mouseenter"
+                         popover="{{ d.poste }}"
+                         popover-placement="left">
+                         <img ng-src="data/pictures/{{ getPicture(d) }}.jpg" />
+                        <h3>{{ d.prenom }}</h3>
+                    </div>
+                </div>
                 <div class="menu">
-                    <img src="data/pictures/qui-est-ce.png" />
-                    <p>
-                        L'ordinateur a choisi un membre du gouvernement au hasard. À vous de le trouver en posant le moins de questions possible.
-                        <br /><br /><br />
-                        Le membre du gouvernement que vous recherchez...</p>
+                    <div class="menu__title">
+                        Critères
+                    </div>
                     <ul ng-swipe-left="nextFilter()" ng-swipe-right="prevFilter()" class="nomobile">
                         <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value">
                             <button type="button" ng-click="applyFilter(filter.value)"
@@ -68,21 +81,6 @@
                     </div>
                     <div class="navigation right" ng-click="nextFilter()">
                         <i class="fa fa-caret-right fa-2x"></i>
-                    </div>
-                </div>
-                <div class='isotope' data-images-loaded data-use-progress-events="yes">
-
-                    <div class="bigyes response"><img src="data/pictures/oui.png" /></div>
-                    <div class="bigno response"><img src="data/pictures/non.png" /></div>
-
-                    <div class="gutter"></div>
-                    <div class="pages" ng-repeat="d in data | orderBy: 'order'"
-                         ng-class="cardClass(d)" ng-click="clickOnCard(d)"
-                         popover-title="{{ d.prenom }} {{ d.nom }}" popover-trigger="mouseenter"
-                         popover="{{ d.poste }}"
-                         popover-placement="left">
-                         <img ng-src="data/pictures/{{ getPicture(d) }}.jpg" />
-                        <h3>{{ d.prenom }}</h3>
                     </div>
                 </div>
             </div>
