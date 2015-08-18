@@ -306,6 +306,21 @@ em {
     font-size: .7em;
 }
 
+.bootstrap-select .btn {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+
+.bootstrap-select .btn .glyphicon-remove,
+.bootstrap-select li .glyphicon-remove {
+	color: #e3234a;
+}
+
+.bootstrap-select .btn .glyphicon-ok,
+.bootstrap-select li .glyphicon-ok {
+	color: #2ec368;
+}
+
 @media (max-width: 960px) {
 	header div.cover {
 		padding: 3em 0 3em 0;
