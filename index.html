@@ -50,6 +50,17 @@
                 <img src="data/pictures/ribbon2.svg">
             </div>
             <div class="pagewrapper">
+                <div class="mobile">
+                    Le membre du gouvernement que vous recherchez...
+                    <select class="form-control" ng-change="filter()" ng-model="filterSelect">
+                        <option value="">---</option>
+                        <option data-icon="{{getSelectIcon(filter.value)}}" ng-repeat='filter in filters' value="{{ filter.value }}"
+                                class="{{getSelectClass(filter.value)}}">
+                            {{ filter.label }}
+                        </option>
+                    </select>
+                    <p></p>
+                </div>
                 <div class="left" data-images-loaded data-use-progress-events="yes">
 
                     <div class="bigyes response"><img src="data/pictures/oui.svg" /></div>
@@ -87,7 +98,8 @@
                     if ($('.ribbon').css('display') !== 'none') {
                         $('.pagewrapper').css('margin-top', $('.ribbon').outerHeight() / 2);
                     }
-                }, 100);
+                    $('select').selectpicker();
+                }, 200);
             });
         </script>
 

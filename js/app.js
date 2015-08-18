@@ -279,8 +279,39 @@ function($scope, $http, $timeout, $location, ngDialog) {
                                                                 : (d.prenom + d.nom).toLowerCase();
         return (d.filtered ? 'nb/' : '') + name;
     };
+
+    $scope.filter = function() {
+        if ($scope.filterSelect.length > 0) {
+            $scope.applyFilter($scope.filterSelect);
+            $timeout(function() {
+                $(window).trigger('updateSelect', [$scope.filterSelect, $scope]);
+            }, 100);
+        }
+    };
+
+    $scope.getSelectClass = function(filter) {
+        return usedFilters[filter] != null ? (usedFilters[filter] ? 'yes' : 'no' ) : '';
+    };
+
+    $scope.getSelectIcon = function(filter) {
+        return 'glyphicon-' + (usedFilters[filter] != null ? (usedFilters[filter] ? 'ok' : 'remove')
+                                                           : 'record');
+    };
 }]);
 
 $(window).resize(function() {
     relayout();
+});
+
+$(window).on('updateSelect', function(ev, x, $scope) {
+    $('select').find('option[value="' + x + '"]').remove();
+    var newOption = $('<option>').text(_.find($scope.filters, { value : x }).label)
+                                 .attr('value', x).attr('disabled', 'disabled')
+                                 .attr('data-icon', $scope.getSelectIcon(x))
+                                 .addClass($scope.getSelectClass(x));
+
+    $('select').prepend(newOption);
+    $('select').selectpicker('val', x);
+
+    $('select').selectpicker('refresh', true);
 });
