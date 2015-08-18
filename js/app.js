@@ -37,7 +37,7 @@ function relayout() {
                                                          : (elementWidth / 2) + (gutterWidth / 2));
             $(this).css({
                 position : 'absolute',
-                top : pos[i].y * $(this).outerHeight(),
+                top : pos[i].y * elementHeight,
                 left : basePos + (pos[i].x * (elementWidth + gutterWidth))
             });
         });
