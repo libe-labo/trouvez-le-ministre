@@ -166,10 +166,14 @@ function($scope, $http, $timeout, $location, ngDialog) {
     /*
     ** Utils
     */
+    $scope.getScore = function() {
+        return String(_.size(usedFilters));
+    };
+
     $scope.tweet = function(win) {
         var twitter = $scope.toFind.twitter != null && $scope.toFind.twitter.length > 0 ? '@' +
                       $scope.toFind.twitter : $scope.toFind.prenom + ' ' + $scope.toFind.nom;
-        var wintext = 'J\'ai identifié ' + twitter + ' en ' + _.size(usedFilters) +
+        var wintext = 'J\'ai identifié ' + twitter + ' en ' + $scope.getScore() +
                       ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
                       ' au «Qui est-ce ?» gouvernemental. Et vous ?';
         var losetext = 'J\'ai perdu au «Qui est-ce ?» gouvernemental. Faites-vous mieux ?';

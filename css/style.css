@@ -64,21 +64,27 @@ section#main-content .ribbon img {
 	top: 50%;
 	left: 0;
 	z-index: -1;
-	-webkit-transform: translate(-60%, -45%);
-       -moz-transform: translate(-60%, -45%);
-        -ms-transform: translate(-60%, -45%);
-         -o-transform: translate(-60%, -45%);
-            transform: translate(-60%, -45%);
+	-webkit-transform: translate(-74%, -45%);
+       -moz-transform: translate(-74%, -45%);
+        -ms-transform: translate(-74%, -45%);
+         -o-transform: translate(-74%, -45%);
+            transform: translate(-74%, -45%);
 }
 
 section#main-content .ribbon img:last-of-type {
 	left: auto;
 	right: 0;
-	-webkit-transform: translate(60%, -45%);
-       -moz-transform: translate(60%, -45%);
-        -ms-transform: translate(60%, -45%);
-         -o-transform: translate(60%, -45%);
-            transform: translate(60%, -45%);
+	-webkit-transform: translate(74%, -45%);
+       -moz-transform: translate(74%, -45%);
+        -ms-transform: translate(74%, -45%);
+         -o-transform: translate(74%, -45%);
+            transform: translate(74%, -45%);
+}
+
+section#main-content .ribbon__score {
+	position: absolute;
+	top: 50%;
+	right: -20px;
 }
 
 .pagewrapper {
