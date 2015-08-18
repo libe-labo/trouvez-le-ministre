@@ -336,6 +336,9 @@ em {
 
 .ngdialog-content p.img {
 	text-align: center;
+	background-position: center center;
+	background-size: 65% auto;
+	background-repeat: no-repeat;
 }
 
 .ngdialog-content img {
