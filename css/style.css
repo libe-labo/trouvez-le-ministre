@@ -3,6 +3,7 @@
 body {
 	background-color: #fff;
 	font-family: 'Open Sans', sans-serif;
+	color: #4d4d4d;
 }
 
 header div.cover {
@@ -103,7 +104,7 @@ section#main-content .ribbon img:last-of-type {
 .menu__title {
 	text-transform: uppercase;
 	text-align: center;
-	color: #000;
+	color: #4d4d4d;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	border-bottom: 2px solid #e3234a;
@@ -215,7 +216,7 @@ em {
 	border: 1px solid #e3234a;
     border-radius: 0;
 
-	color: #e3234a;
+	color: #4d4d4d;
 	background-color: #fff;
 	font-family: "Open Sans";
 
@@ -243,6 +244,7 @@ em {
 }
 
 .btn.no {
+	border-color: #4d4d4d;
 	opacity: .5;
 }
 
@@ -301,13 +303,13 @@ em {
     position: absolute;
     bottom: -15px;
     left: 5px;
-    color: #888;
+    color: #4d4d4d;
     font-family: "Open Sans";
     font-size: .7em;
 }
 
 .bootstrap-select .btn {
-	color: #000 !important;
+	color: #4d4d4d !important;
 	background-color: #fff !important;
 }
 
@@ -319,6 +321,14 @@ em {
 .bootstrap-select .btn .glyphicon-ok,
 .bootstrap-select li .glyphicon-ok {
 	color: #2ec368;
+}
+
+.ngdialog-content p.img {
+	text-align: center;
+}
+
+.ngdialog-content img {
+	width: 65%;
 }
 
 .center {
