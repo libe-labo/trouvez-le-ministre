@@ -84,7 +84,12 @@
                         Critères
                     </div>
                     <ul>
-                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value">
+                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="filterClass(filter.value).used">
+                            <button type="button" ng-click="applyFilter(filter.value)"
+                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
+                        </li>
+                        <li style="width: 100%; height: 1em;"></li>
+                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="!filterClass(filter.value).used">
                             <button type="button" ng-click="applyFilter(filter.value)"
                                     ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
                         </li>

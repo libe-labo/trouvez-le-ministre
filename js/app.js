@@ -190,7 +190,8 @@ function($scope, $http, $timeout, $location, ngDialog) {
     $scope.filterClass = function(d) {
         return {
             yes : usedFilters[d] === true,
-            no : usedFilters[d] === false
+            no : usedFilters[d] === false,
+            used : Object.keys(usedFilters).indexOf(d) >= 0
         };
     };
 
