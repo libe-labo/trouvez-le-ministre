@@ -53,7 +53,7 @@
                 <div class="mobile">
                     Le membre du gouvernement que vous recherchez...
                     <select class="form-control" ng-change="filter()" ng-model="filterSelect">
-                        <option value="">---</option>
+                        <option value="" disabled="disabled">---</option>
                         <option data-icon="{{getSelectIcon(filter.value)}}" ng-repeat='filter in filters' value="{{ filter.value }}"
                                 class="{{getSelectClass(filter.value)}}">
                             {{ filter.label }}
