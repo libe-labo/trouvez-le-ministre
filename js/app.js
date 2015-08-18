@@ -6,7 +6,7 @@ function relayout() {
             $elements = $container.find('.pages'),
             containerWidth = $container.innerWidth(),
             elementWidth = parseInt($elements.outerWidth()),
-            elementHeight = parseInt($elements.outerHeight()),
+            elementHeight = elementWidth + 35,
             gutterWidth = 0,
             nOnLine = 0,
             nLines = 1,
@@ -282,7 +282,7 @@ function($scope, $http, $timeout, $location, ngDialog) {
     };
 
     $scope.getPicture = function(d) {
-        var name =  (d.twitter != null && d.twitter.length > 0) ? d.twitter
+        var name =  (d.twitter != null && d.twitter.length > 0) ? d.twitter.trim()
                                                                 : (d.prenom + d.nom).toLowerCase();
         return (d.filtered ? 'nb/' : '') + name;
     };
