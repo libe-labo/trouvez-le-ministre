@@ -361,4 +361,12 @@ em {
     .nomobile {
         display: none;
     }
+
+	#main-header {
+		position: relative !important;
+	}
+
+	#main-header .wrapper {
+		position: fixed;
+	}
 }
