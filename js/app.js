@@ -314,4 +314,7 @@ $(window).on('updateSelect', function(ev, x, $scope) {
     $('select').selectpicker('val', x);
 
     $('select').selectpicker('refresh', true);
+
+    $('.pages.fadedout').remove();
+    relayout();
 });
