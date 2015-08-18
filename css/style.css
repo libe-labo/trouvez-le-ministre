@@ -321,6 +321,14 @@ em {
 	color: #2ec368;
 }
 
+.center {
+	text-align: center;
+}
+
+.bold {
+	font-weight: 700;
+}
+
 @media (max-width: 960px) {
 	header div.cover {
 		padding: 3em 0 3em 0;

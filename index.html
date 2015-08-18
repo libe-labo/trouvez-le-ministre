@@ -51,7 +51,9 @@
             </div>
             <div class="pagewrapper">
                 <div class="mobile">
-                    Le membre du gouvernement que vous recherchez...
+                    <p class='center bold'>
+                        Le membre du gouvernement que vous recherchez...
+                    </p>
                     <select class="form-control" ng-change="filter()" ng-model="filterSelect">
                         <option value="" disabled="disabled">---</option>
                         <option data-icon="{{getSelectIcon(filter.value)}}" ng-repeat='filter in filters' value="{{ filter.value }}"
