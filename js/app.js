@@ -45,7 +45,7 @@ function relayout() {
     }, 100);
 }
 
-var app = angular.module('app', ['lheader', 'ui.bootstrap', 'imagesLoaded', 'ngTouch', 'ngDialog']);
+var app = angular.module('app', ['lheader', 'ui.bootstrap', 'ngTouch', 'ngDialog']);
 
 app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
 function($scope, $http, $timeout, $location, ngDialog) {
@@ -128,10 +128,6 @@ function($scope, $http, $timeout, $location, ngDialog) {
     var texts = [];
 
     var allData = [];
-
-    $scope.$on('PROGRESS', function() {
-        relayout();
-    });
 
     /*
     ** Get data
@@ -272,20 +268,6 @@ function($scope, $http, $timeout, $location, ngDialog) {
                 closeByDocument : false
             });
         }
-    };
-
-    $scope.nextFilter = function() {
-        var pos = Math.max(parseInt($('.menu ul').css('left')) - 200, -1600);
-        $('.menu ul').animate({
-            'left' : pos + 'px'
-        }, 150);
-    };
-
-    $scope.prevFilter = function() {
-        var pos = Math.min(parseInt($('.menu ul').css('left')) + 200, 0);
-        $('.menu ul').animate({
-            'left' : pos.toString() + 'px'
-        }, 150);
     };
 
     $scope.reload = function() {
