@@ -72,9 +72,8 @@
                     <div class="gutter"></div>
                     <div class="pages" ng-repeat="d in data | orderBy: 'order'"
                          ng-class="cardClass(d)" ng-click="clickOnCard(d)"
-                         popover-title="{{ d.prenom }} {{ d.nom }}" popover-trigger="mouseenter"
-                         popover="{{ d.poste }}" popover-append-to-body="true"
-                         popover-placement="bottom">
+                         data-title="{{ d.prenom }} {{ d.nom }}"
+                         data-content="{{ d.poste }}">
                          <img ng-src="data/pictures/photos/{{ getPicture(d) }}.png" />
                         <h3>{{ d.prenom }}</h3>
                     </div>

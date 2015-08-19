@@ -40,6 +40,11 @@ function relayout() {
                 top : pos[i].y * elementHeight,
                 left : basePos + (pos[i].x * (elementWidth + gutterWidth))
             });
+
+            $(this).popover({
+                placement : 'auto',
+                trigger : 'hover'
+            });
         });
 
     }, 100);
