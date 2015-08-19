@@ -173,9 +173,9 @@ function($scope, $http, $timeout, $location, ngDialog) {
     $scope.tweet = function(win) {
         var twitter = $scope.toFind.twitter != null && $scope.toFind.twitter.length > 0 ? '@' +
                       $scope.toFind.twitter : $scope.toFind.prenom + ' ' + $scope.toFind.nom;
-        var wintext = 'J\'ai identifié ' + twitter + ' en ' + $scope.getScore() +
-                      ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
-                      ' au «Qui est-ce ?» gouvernemental. Et vous ?';
+        var wintext = 'Nouveau gouvernement : j\'ai identifié ' + twitter +
+                      ' en ' + $scope.getScore() + ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
+                      '. Ferez-vous mieux ?';
         var losetext = 'J\'ai perdu au «Qui est-ce ?» gouvernemental. Faites-vous mieux ?';
         var text = encodeURIComponent(win ? wintext : losetext),
             url  = encodeURIComponent($location.absUrl()),
