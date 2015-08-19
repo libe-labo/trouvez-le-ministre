@@ -56,69 +56,69 @@ function($scope, $http, $timeout, $location, ngDialog) {
     };
 
     var filterNames = {
-        'Chauve' : { label : 'est-il chauve ?', value : 'chauve', order : 1 },
-        'Barbu' : { label : 'est-il barbu ?', value : 'barbu', order : 2 },
-        'Femme' : { label : 'est-il une femme ?', value : 'femme', order : 3 },
+        'Chauve' : { label : 'chauve', value : 'chauve', order : 1 },
+        'Barbu' : { label : 'barbu', value : 'barbu', order : 2 },
+        'Femme' : { label : 'femme', value : 'femme', order : 3 },
         'Candidat.e aux primaires PS' : {
-            label : 'a-t-il été candidat à la primaire du PS en 2011 ?',
+            label : 'candidat aux primaires en 2011',
             value : 'primaires',
             order : 4
         },
-        'Enarque' : { label : 'est-il énarque ?', value : 'enarque', order : 6 },
+        'Enarque' : { label : 'énarque', value : 'enarque', order : 6 },
         'Secrétaire d\'Etat' : {
-            label : 'est-il secrétaire d\'État ?',
+            label : 'secrétaire d\'Etat',
             value : 'secretairedetat',
             order : 7
         },
         'Déjà là en mai 2012 (Ayrault 1)' : {
-            label : 'était-il déjà au gouvernement en mai 2012 ?',
+            label : 'là depuis mai 2012',
             value : 'mai2012',
             order : 8
         },
         'A soutenu Aubry à la primaire' : {
-            label : 'soutenait-il Martine Aubry à la primaire de 2011 ?',
+            label : 'soutien de Martine Aubry en 2011',
             value : 'aubry',
             order : 9
         },
-        'Déjà élu.e' : { label : 'a-t-il déjà été élu ?', value : 'elu', order : 10 },
+        'Déjà élu.e' : { label : 'déjà élu', value : 'elu', order : 10 },
         'Elu.e d\'Outre-Mer' : {
-            label : 'a-t-il été élu d\'Outre-Mer ?',
+            label : 'élu d\'outre-Mer',
             value : 'outremer',
             order : 11
         },
         'Né.e avant la Ve République' : {
-            label : 'est-il né avant la Ve République ?',
+            label : 'né avant la Ve',
             value : 'verepublique',
             order : 12
         },
-        'Né.e sous Giscard' : { label : 'est-il né sous Giscard ?', value : 'giscard', order : 13 },
+        'Né.e sous Giscard' : { label : 'né sous Giscard', value : 'giscard', order : 13 },
         'Né.e à l\'étranger' : {
-            label : 'est-il né à l\'étranger ?',
+            label : 'né à l\'étranger',
             value : 'neetrange',
             order : 14
         },
         'Nouvel entrant' : {
-            label : 'est-il un nouvel entrant ?',
+            label : 'nouvel entrant',
             value : 'nouvelentrant',
             order : 15
         },
         'Porte des lunettes' : {
-            label : 'porte-t-il des lunettes ?',
+            label : 'lunettes',
             value : 'lunettes',
             order : 16
         },
         'Adhérent.e au PS' : {
-            label : 'est-il adhérent au PS ?',
+            label : 'adhérent PS',
             value : 'adherentps',
             order : 17
         },
         'Elu.e du sud' : {
-            label : 'a-t-il été élu du Sud de la France ?',
+            label : 'élu du sud',
             value : 'sud',
             order : 18
         },
         'Portrait de der de Libé' : {
-            label : 'a-t-il eu droit à un portrait de der dans Libé ?',
+            label : 'portrait de der dans Libé',
             value : 'portrait',
             order : 19
         }
@@ -176,7 +176,8 @@ function($scope, $http, $timeout, $location, ngDialog) {
         var wintext = 'Nouveau gouvernement : j\'ai identifié ' + twitter +
                       ' en ' + $scope.getScore() + ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
                       '. Ferez-vous mieux ?';
-        var losetext = 'J\'ai perdu au «Qui est-ce ?» gouvernemental. Faites-vous mieux ?';
+        var losetext = 'J\'ai perdu, je n\'ai pas réussi à trouver le ministre...' +
+                       'Ferez-vous mieux ?';
         var text = encodeURIComponent(win ? wintext : losetext),
             url  = encodeURIComponent($location.absUrl()),
             link = 'https://twitter.com/intent/tweet?original_referer=' + '' + '&text=' + text +
