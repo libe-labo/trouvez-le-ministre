@@ -66,13 +66,12 @@ function($scope, $http, $timeout, $location, ngDialog) {
     $http.get('data/criterias.tsv').then(function(response) {
         filterNames = _.indexBy(d3.tsv.parse(response.data, function(d) {
             return {
-                name : d.phrase,
                 label : d.base,
                 1 : d.oui,
                 0 : d.non,
                 value : d.phrase
             };
-        }), 'name');
+        }), 'value');
 
         $http.get('data/data.tsv').then(function(response) {
             allData = d3.tsv.parse(response.data, function(d) {
