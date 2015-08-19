@@ -105,6 +105,22 @@
                         $('.pagewrapper').css('margin-top', $('.ribbon').outerHeight() / 2);
                     }
                     $('select').selectpicker();
+
+                    var fixedMenu = function() {
+                        $('.menu').css({
+                            position: '',
+                            top: '',
+                            left: ''
+                        });
+                        $('.menu').css({
+                            position: 'fixed',
+                            top: $('.menu').offset().top,
+                            left: $('.menu').offset().left
+                        });
+                    };
+
+                    $(window).resize(fixedMenu);
+                    fixedMenu();
                 }, 200);
             });
         </script>
