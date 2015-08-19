@@ -55,112 +55,51 @@ function($scope, $http, $timeout, $location, ngDialog) {
         return (d.trim().toLowerCase() === 'oui');
     };
 
-    var filterNames = {
-        'Chauve' : { label : 'chauve', value : 'chauve', order : 1 },
-        'Barbu' : { label : 'barbu', value : 'barbu', order : 2 },
-        'Femme' : { label : 'femme', value : 'femme', order : 3 },
-        'Candidat.e aux primaires PS' : {
-            label : 'candidat aux primaires en 2011',
-            value : 'primaires',
-            order : 4
-        },
-        'Enarque' : { label : 'énarque', value : 'enarque', order : 6 },
-        'Secrétaire d\'Etat' : {
-            label : 'secrétaire d\'Etat',
-            value : 'secretairedetat',
-            order : 7
-        },
-        'Déjà là en mai 2012 (Ayrault 1)' : {
-            label : 'là depuis mai 2012',
-            value : 'mai2012',
-            order : 8
-        },
-        'A soutenu Aubry à la primaire' : {
-            label : 'soutien de Martine Aubry en 2011',
-            value : 'aubry',
-            order : 9
-        },
-        'Déjà élu.e' : { label : 'déjà élu', value : 'elu', order : 10 },
-        'Elu.e d\'Outre-Mer' : {
-            label : 'élu d\'outre-Mer',
-            value : 'outremer',
-            order : 11
-        },
-        'Né.e avant la Ve République' : {
-            label : 'né avant la Ve',
-            value : 'verepublique',
-            order : 12
-        },
-        'Né.e sous Giscard' : { label : 'né sous Giscard', value : 'giscard', order : 13 },
-        'Né.e à l\'étranger' : {
-            label : 'né à l\'étranger',
-            value : 'neetrange',
-            order : 14
-        },
-        'Nouvel entrant' : {
-            label : 'nouvel entrant',
-            value : 'nouvelentrant',
-            order : 15
-        },
-        'Porte des lunettes' : {
-            label : 'lunettes',
-            value : 'lunettes',
-            order : 16
-        },
-        'Adhérent.e au PS' : {
-            label : 'adhérent PS',
-            value : 'adherentps',
-            order : 17
-        },
-        'Elu.e du sud' : {
-            label : 'élu du sud',
-            value : 'sud',
-            order : 18
-        },
-        'Portrait de der de Libé' : {
-            label : 'portrait de der dans Libé',
-            value : 'portrait',
-            order : 19
-        }
-    };
+    var filterNames = {};
     var usedFilters = {};
-
-    var texts = [];
 
     var allData = [];
 
     /*
     ** Get data
     */
-    $http.get('data/data.tsv').then(function(response) {
-        allData = d3.tsv.parse(response.data, function(d) {
-            var ret = {
-                prenom : d['Prénom'],
-                nom : d.Nom,
-                poste : d['Ministère'],
-                order : +d['Ordre protocolaire'],
-                twitter : d.Twitter,
-                filtered : false
+    $http.get('data/criterias.tsv').then(function(response) {
+        filterNames = _.indexBy(d3.tsv.parse(response.data, function(d) {
+            return {
+                name : d.phrase,
+                label : d.base,
+                1 : d.oui,
+                0 : d.non,
+                value : d.phrase
             };
+        }), 'name');
 
-            _.each(filterNames, function(v, k) {
-                ret[v.value] = handleYesNo(d[k]);
+        $http.get('data/data.tsv').then(function(response) {
+            allData = d3.tsv.parse(response.data, function(d) {
+                var ret = {
+                    prenom : d['Prénom'],
+                    nom : d.Nom,
+                    poste : d['Ministère'],
+                    order : +d['Ordre protocolaire'],
+                    twitter : d.Twitter,
+                    filtered : false
+                };
+
+                _.each(filterNames, function(v, k) {
+                    ret[v.value] = handleYesNo(d[k]);
+                });
+
+                return ret;
             });
 
-            return ret;
+            $scope.data = allData;
+
+            $scope.toFind = _.sample(allData);
+
+            $scope.filters = _.values(filterNames);
+
+            relayout();
         });
-
-        $scope.data = allData;
-
-        $scope.toFind = _.sample(allData);
-
-        $scope.filters = _.values(filterNames);
-
-        relayout();
-    });
-
-    $http.get('data/texts.tsv').then(function(response) {
-        texts = d3.tsv.parse(response.data);
     });
 
     /*
@@ -211,10 +150,9 @@ function($scope, $http, $timeout, $location, ngDialog) {
 
         usedFilters[filter] = is;
 
-        var k = _.findKey(filterNames, function(d) { return d.value === filter; });
-        var k2 = _.findKey($scope.filters, function(d) { return d.value === filter; });
-        $scope.filters[k2].label = texts[+is][k];
-        $scope.filters[k2].order = is ? -2 : -1;
+        var k = _.findKey($scope.filters, function(d) { return d.value === filter; });
+        $scope.filters[k].label = _.find(filterNames, { value : filter })[+is];
+        $scope.filters[k].order = is ? -2 : -1;
 
         var className = is ? 'bigyes' : 'bigno';
         $('.response.' + className).animate({
