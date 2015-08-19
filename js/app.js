@@ -43,7 +43,8 @@ function relayout() {
 
             $(this).popover({
                 placement : 'auto',
-                trigger : 'hover'
+                trigger : 'hover',
+                container : 'body'
             });
         });
 
