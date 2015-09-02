@@ -190,8 +190,9 @@ function($scope, $http, $timeout, $location, ngDialog) {
                 name : d.prenom + ' ' + d.nom,
                 n : _.size(usedFilters),
                 post : d.poste,
-                pronoun : d.femme ? 'Elle' : 'Il',
-                picture : $scope.getPicture(d)
+                pronoun : d.Femme ? 'Elle' : 'Il',
+                picture : $scope.getPicture(d),
+                e : d.Femme ? 'e' : ''
             },
             scope : $scope,
             showClose : false,
@@ -210,8 +211,9 @@ function($scope, $http, $timeout, $location, ngDialog) {
                 data : {
                     name : d.prenom + ' ' + d.nom,
                     post : d.poste,
-                    pronoun : d.femme ? 'Elle' : 'Il',
-                    picture : $scope.getPicture(d)
+                    pronoun : d.Femme ? 'Elle' : 'Il',
+                    picture : $scope.getPicture(d),
+                    e : d.Femme ? 'e' : ''
                 },
                 scope : $scope,
                 showClose : false,
