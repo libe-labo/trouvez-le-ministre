@@ -69,6 +69,7 @@ function($scope, $http, $timeout, $location, ngDialog) {
     /*
     ** Get data
     */
+    window.ok = false;
     $http.get('data/criterias.tsv').then(function(response) {
         filterNames = _.indexBy(d3.tsv.parse(response.data, function(d) {
             return {
@@ -80,6 +81,8 @@ function($scope, $http, $timeout, $location, ngDialog) {
         }), 'value');
 
         $http.get('data/data.tsv').then(function(response) {
+            window.ok = true;
+
             allData = d3.tsv.parse(response.data, function(d) {
                 var ret = {
                     prenom : d['Prénom'],
