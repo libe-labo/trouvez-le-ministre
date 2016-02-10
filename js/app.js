@@ -51,7 +51,7 @@ function relayout() {
     }, 100);
 }
 
-var app = angular.module('app', ['lheader', 'ui.bootstrap', 'ngTouch', 'ngDialog']);
+var app = angular.module('app', ['ui.bootstrap', 'ngTouch', 'ngDialog']);
 
 app.controller('Ctrl', ['$scope', '$http', '$timeout', '$location', 'ngDialog',
 function($scope, $http, $timeout, $location, ngDialog) {
