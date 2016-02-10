@@ -36,32 +36,45 @@
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js"></script>
 
-        <script type="text/javascript" src="directives/lheader/lheader.directive.js" charset="utf-8"></script>
-
         <script type="text/javascript" src="js/app.js" charset="utf-8"></script>
     </head>
     <body ng-controller="Ctrl">
-        <lheader></lheader>
-
         <section id="main-content">
-            <div class="ribbon nomobile">
-                <img src="data/pictures/ribbon.svg">
-                <p class="ribbon__content">L'ordinateur a choisi au hasard un membre du gouvernement. Découvrez-le le plus vite possible en choisissant les bons signes distinctifs.</p>
-                <img src="data/pictures/ribbon2.svg">
-            </div>
             <div class="pagewrapper">
-                <div class="mobile">
-                    <p class='center bold'>
-                        Le membre du gouvernement que vous recherchez...
-                    </p>
-                    <select class="form-control" ng-change="filter()" ng-model="filterSelect">
-                        <option value="" disabled="disabled">---</option>
-                        <option data-icon="{{getSelectIcon(filter.value)}}" ng-repeat='filter in filters' value="{{ filter.value }}"
-                                class="{{getSelectClass(filter.value)}}">
+                <div class="cover">
+                    <h1>Je suis...<br />Je suis...</h1> <!-- TODO Reduce title on mobile -->
+                    <div class="menu_ nomobile">
+                        <div class="menu__title">
+                            ...
+                        </div>
+                        <ul>
+                            <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="filterClass(filter.value).used">
+                                <button type="button" ng-click="applyFilter(filter.value)"
+                                ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
+                            </li>
+                            <li style="width: 100%; height: 1em;"></li>
+                            <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="!filterClass(filter.value).used">
+                                <button type="button" ng-click="applyFilter(filter.value)"
+                                ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;">
+                            <a href="http://www.liberation.fr/data-nouveaux-formats-six-plus,100538" target="_blank"><img src="data/pictures/logo.svg" style="width:150px;"></a>
+                        </p>
+                    </div>
+                    <div class="menu mobile">
+                        <p class='center bold'>
+                            ...
+                        </p>
+                        <select class="form-control" ng-change="filter()" ng-model="filterSelect">
+                            <option value="" disabled="disabled">---</option>
+                            <option data-icon="{{getSelectIcon(filter.value)}}" ng-repeat='filter in filters' value="{{ filter.value }}"
+                            class="{{getSelectClass(filter.value)}}">
                             {{ filter.label }}
-                        </option>
-                    </select>
-                    <p></p>
+                            </option>
+                        </select>
+                        <p><br /></p>
+                    </div>
                 </div>
                 <div class="left" data-images-loaded data-use-progress-events="yes">
                     <div class="bigyes response"><img src="data/pictures/oui.svg" /></div>
