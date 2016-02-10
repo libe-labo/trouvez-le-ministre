@@ -147,6 +147,25 @@ function($scope, $http, $timeout, $location, ngDialog) {
         };
     };
 
+    var win = function(d) {
+        ngDialog.open({
+            template : 'win.html',
+            className : 'ngdialog-theme-plain',
+            data : {
+                name : d.prenom + ' ' + d.nom,
+                n : _.size(usedFilters),
+                post : d.poste,
+                pronoun : d.Femme ? 'Elle' : 'Il',
+                picture : $scope.getPicture(d),
+                e : d.Femme ? 'e' : ''
+            },
+            scope : $scope,
+            showClose : false,
+            closeByEscape : false,
+            closeByDocument : false
+        });
+    };
+
     $scope.applyFilter = function(filter) {
         if (_.has(usedFilters, filter)) { return; }
 
@@ -183,25 +202,6 @@ function($scope, $http, $timeout, $location, ngDialog) {
         if (_.countBy($scope.data, 'filtered')[false] === 1) {
             win($scope.toFind);
         }
-    };
-
-    var win = function(d) {
-        ngDialog.open({
-            template : 'win.html',
-            className : 'ngdialog-theme-plain',
-            data : {
-                name : d.prenom + ' ' + d.nom,
-                n : _.size(usedFilters),
-                post : d.poste,
-                pronoun : d.Femme ? 'Elle' : 'Il',
-                picture : $scope.getPicture(d),
-                e : d.Femme ? 'e' : ''
-            },
-            scope : $scope,
-            showClose : false,
-            closeByEscape : false,
-            closeByDocument : false
-        });
     };
 
     $scope.clickOnCard = function(d) {
