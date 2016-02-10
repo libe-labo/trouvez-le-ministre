@@ -86,62 +86,26 @@
                          data-title="{{ d.prenom }} {{ d.nom }}"
                          data-content="{{ d.poste }}">
                          <img ng-src="data/pictures/photos/{{ getPicture(d) }}.png" />
-                        <h3>{{ d.prenom }}</h3>
+                        <h3>{{ d.prenom }} {{ d.nom }}</h3>
                     </div>
                     <div class="credits">
                         Photos : AFP
                     </div>
                 </div>
-                <div class="menu nomobile">
-                    <div class="menu__title">
-                        Ce membre du gouvernement est...
-                    </div>
-                    <ul>
-                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="filterClass(filter.value).used">
-                            <button type="button" ng-click="applyFilter(filter.value)"
-                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
-                        </li>
-                        <li style="width: 100%; height: 1em;"></li>
-                        <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="!filterClass(filter.value).used">
-                            <button type="button" ng-click="applyFilter(filter.value)"
-                                    ng-class="$parent.filterClass(filter.value)" class="btn">{{ filter.label }}</button>
-                        </li>
-                    </ul>
-                    <p style="text-align:center;">
-                        <a href="http://www.liberation.fr/data-nouveaux-formats-six-plus,100538" target="_blank"><img src="data/pictures/logo.svg" style="width:150px;"></a>
-                    </p>
-                </div>
                 <p class="mobile" style="text-align:center;">
-                    <a href="http://www.liberation.fr/data-nouveaux-formats-six-plus,100538" target="_blank"><img src="data/pictures/logo.svg" style="width:150px;"></a>
+                    <a href="http://www.liberation.fr/data-nouveaux-formats-six-plus,100538" target="_blank"><img src="data/pictures/logo2.svg" style="width:150px;"></a>
                 </p>
             </div>
         </section>
+
+        <!-- Header -->
+        <script type="text/javascript" src="http://www.liberation.fr/menu/script.js"></script>
 
         <script type="text/javascript">
             $(function() {
                 var init = function() {
                     if (window.ok) {
-                        $('#main-content').css('margin-top', $('.cover').outerHeight());
-                        if ($('.ribbon').css('display') !== 'none') {
-                            $('.pagewrapper').css('margin-top', $('.ribbon').outerHeight() / 2);
-                        }
                         $('select').selectpicker();
-
-                        var fixedMenu = function() {
-                            $('.menu').css({
-                                position: '',
-                                top: '',
-                                left: ''
-                            });
-                            $('.menu').css({
-                                position: 'fixed',
-                                top: $('.menu').offset().top,
-                                left: $('.menu').offset().left
-                            });
-                        };
-
-                        $(window).resize(fixedMenu);
-                        fixedMenu();
                     } else {
                         setTimeout(init, 100);
                     }
