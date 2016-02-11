@@ -4,7 +4,8 @@ function relayout() {
     window.setTimeout(function() {
         var $container = $('.left'),
             $elements = $container.find('.pages'),
-            containerWidth = $container.innerWidth(),
+            margin = $container.innerWidth() <= 960 ? 10 : 20,
+            containerWidth = $container.innerWidth() - (2 * margin),
             elementWidth = parseInt($elements.outerWidth()),
             elementHeight = elementWidth + 35,
             gutterWidth = 0,
@@ -29,7 +30,7 @@ function relayout() {
 
         $container.css({
             position : 'relative',
-            height : nLines * elementHeight
+            height : nLines * elementHeight + (margin * 2)
         });
         $container.find('.pages').each(function(i) {
             var basePos = pos[i].y % 2 ? 0
@@ -37,8 +38,8 @@ function relayout() {
                                                          : (elementWidth / 2) + (gutterWidth / 2));
             $(this).css({
                 position : 'absolute',
-                top : pos[i].y * elementHeight,
-                left : basePos + (pos[i].x * (elementWidth + gutterWidth))
+                top : margin + (pos[i].y * elementHeight),
+                left : margin + basePos + (pos[i].x * (elementWidth + gutterWidth))
             });
 
             $(this).popover({

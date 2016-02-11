@@ -1,19 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
 
 body {
-	background-color: #fff;
+    background-color: #e3234a;
+
 	font-family: 'Open Sans', sans-serif;
 	color: #4d4d4d;
+
+    overflow-x: hidden;
 }
 
 div.cover {
-    width: 30%;
-    margin-right: 3vw;
-
-	background-color: #e3234a;
-
-    overflow-x: hidden;
-    overflow-y: auto;
+    flex: 4;
 }
 
 div.cover h1 {
@@ -43,16 +40,16 @@ section#main-content {
 }
 
 .pagewrapper {
+    display: inline-flex;
+
 	width: 100%;
-    overflow-x: h;
-    float: left;
 
     box-sizing: border-box;
 }
 
 .pagewrapper > div {
-	float: left;
-    height: 100%;
+    min-height: 100%;
+    height: 100vh;
 
     box-sizing: border-box;
 }
@@ -119,7 +116,9 @@ section#main-content {
 }
 
 .pagewrapper .left {
-	width: 65%;
+    flex: 8;
+
+    background-color: #ffffff;
 }
 
 .pages h3 {
@@ -268,8 +267,8 @@ em {
 
 .credits {
     position: absolute;
-    bottom: -15px;
-    left: 5px;
+    bottom: 0px;
+    right: 5px;
     color: #4d4d4d;
     font-family: "Open Sans";
     font-size: .7em;
@@ -310,6 +309,10 @@ em {
 }
 
 @media (max-width: 960px) {
+    .pagewrapper {
+        display: block;
+    }
+
     .popover {
         display: none !important;
         pointer-events: none !important;
@@ -339,6 +342,7 @@ em {
         float: left;
         clear: both;
         width: 100% !important;
+        min-height: 0;
         height: auto;
     }
 
