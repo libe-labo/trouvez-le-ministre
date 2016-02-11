@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
 
 body {
-    background-color: #e3234a;
+    background-color: #e61e49;
 
 	font-family: 'Open Sans', sans-serif;
 	color: #4d4d4d;
@@ -103,7 +103,7 @@ section#main-content {
 	padding: 10px;
 
 	background-color: #fff;
-	color: #e3234a;
+	color: #e61e49;
 }
 
 #main-content .menu_ .result .name {
@@ -111,8 +111,8 @@ section#main-content {
 	font-size: 3em;
 	font-weight: 700;
 	color: #fff;
-	-webkit-text-stroke: 2px #e3234a;
-	        text-stroke: 2px #e3234a;
+	-webkit-text-stroke: 2px #e61e49;
+	        text-stroke: 2px #e61e49;
 }
 
 .pagewrapper .left {
@@ -176,7 +176,7 @@ em {
 }
 
 .btn {
-	border: 1px solid #e3234a;
+	border: 1px solid #e61e49;
     border-radius: 0;
 
 	color: #4d4d4d;
@@ -195,7 +195,7 @@ em {
 
 .btn:hover {
 	color: #fff;
-	background-color: #e3234a;
+	background-color: #e61e49;
     border-color: #ffffff;
 }
 
@@ -205,7 +205,7 @@ em {
 
 .btn.yes {
 	color: #fff;
-	background-color: #e3234a;
+	background-color: #e61e49;
     border-color: #fff;
 }
 
@@ -227,9 +227,9 @@ em {
 }
 
 .ngdialog .btn:hover {
-    color: #e3234a;
+    color: #e61e49;
     background-color: #fff;
-    border: 2px solid #e3234a;
+    border: 2px solid #e61e49;
 }
 
 .ngdialog h2 {
@@ -281,7 +281,7 @@ em {
 
 .bootstrap-select .btn .glyphicon-remove,
 .bootstrap-select li .glyphicon-remove {
-	color: #e3234a;
+	color: #e61e49;
 }
 
 .bootstrap-select .btn .glyphicon-ok,
