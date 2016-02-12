@@ -30,7 +30,7 @@ function relayout() {
 
         $container.css({
             position : 'relative',
-            height : nLines * elementHeight + (margin * 2)
+            height : Math.max(nLines * elementHeight + (margin * 2), $(window).outerHeight())
         });
         $container.find('.pages').each(function(i) {
             var basePos = pos[i].y % 2 ? 0
