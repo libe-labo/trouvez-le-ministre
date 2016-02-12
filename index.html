@@ -10,7 +10,7 @@
 
         <meta property="og:title" content="Remaniement : quel ministre êtes-vous ?" />
         <meta property="og:site_name" content="Libération.fr"/>
-        <meta property="og:image" content="http://www.liberation.fr/apps/2016/02/jesuisjesuis/data/pictures/social.png" />
+        <meta property="og:image" content="http://www.liberation.fr/apps/2016/02/jesuisjesuis/data/pictures/social.jpg" />
         <meta property="og:url" content="http://www.liberation.fr/apps/2016/02/jesuisjesuis/" />
         <meta property="og:description" content="" />
 
@@ -45,7 +45,8 @@
                     <h1>Je suis...<br />Je suis...</h1> <!-- TODO Reduce title on mobile -->
                     <div class="menu_ nomobile">
                         <div class="menu__title">
-                            ...
+                            Je suis... un membre du troisième gouvernement de Manuel Valls choisi par l'ordinateur.<br />
+                            Saurez-vous me retrouver à l'aide des boutons ci-dessous&nbsp;?
                         </div>
                         <ul>
                             <li ng-repeat="filter in filters | orderBy:'order'" ng-class="filter.value" ng-if="filterClass(filter.value).used">
@@ -64,7 +65,8 @@
                     </div>
                     <div class="menu mobile">
                         <p class='center bold'>
-                            ...
+                            Je suis... un membre du troisième gouvernement de Manuel Valls choisi par l'ordinateur.<br />
+                            Saurez-vous me retrouver à l'aide des boutons ci-dessous&nbsp;?
                         </p>
                         <select class="form-control" ng-change="filter()" ng-model="filterSelect">
                             <option value="" disabled="disabled">---</option>

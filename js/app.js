@@ -123,9 +123,9 @@ function($scope, $http, $timeout, $location, ngDialog) {
                       $scope.toFind.twitter : $scope.toFind.prenom + ' ' + $scope.toFind.nom;
         var wintext = 'Nouveau gouvernement : j\'ai identifié ' + twitter +
                       ' en ' + $scope.getScore() + ' coup' + (_.size(usedFilters) > 1 ? 's' : '') +
-                      '. Ferez-vous mieux ? #ministresmiconnus';
+                      '. Ferez-vous mieux ? #jesuisjesuis';
         var losetext = 'J\'ai perdu, je n\'ai pas réussi à trouver le ministre...' +
-                       ' Ferez-vous mieux ? #ministresmiconnus';
+                       ' Ferez-vous mieux ? #jesuisjesuis';
         var text = encodeURIComponent(win ? wintext : losetext),
             url  = encodeURIComponent($location.absUrl()),
             link = 'https://twitter.com/intent/tweet?original_referer=' + '' + '&text=' + text +
